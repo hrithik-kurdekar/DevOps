@@ -16,6 +16,7 @@ services:
       test: ["CMD", "pg_isready", "-U", "admin", "-d", "app_data"]
       interval: 10s
       retries: 5
+      timeout: 10s
     restart: unless-stopped
 
   app_backend:
