@@ -15,7 +15,7 @@ jobs:
     services:
       postgres:
         image: postgres:16
-        environment:
+        env:
           POSTGRES_USER: admin
           POSTGRES_PASSWORD: secret
           POSTGRES_DB: app_data
@@ -50,7 +50,7 @@ jobs:
           python -m pytest --maxfail=1 --junitxml=pytest_report.xml
 
       - name: Uploading Artifact
-        if: always() # Ensures the report uploads even if tests fail
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Pytest-Report
