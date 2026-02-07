@@ -221,6 +221,8 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Deploying Application
+        env:
+          DOCKERHUB_USER: ${{secrets.DOCKERHUB_USER}}
         run: docker compose up -d
 
 
